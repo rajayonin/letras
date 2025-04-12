@@ -1,7 +1,7 @@
 [project]
 name = "letras"
 version = "0.1.0"
-description = "Add your description here"
+description = " Programa que resuelve la prueba de \"letras\" del programa de televisión \"Cifras y Letras\"."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [

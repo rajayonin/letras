@@ -13,6 +13,9 @@ class Trie:
         self.end = end
 
     def append(self, letter: str, end: bool = False):
+        """
+        Adds a letter as a child to the current tree.
+        """
         self.children.append(Trie(letter, end=end))
 
     def _add_child(self, node: 'Trie'):

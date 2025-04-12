@@ -1,3 +1,7 @@
+"""
+Obtains the longest possible word using the given letters and the generated radix trees.
+"""
+
 import sys
 
 from trie import Trie
@@ -11,9 +15,19 @@ Usage:
 
 
 def resolve(letters: list[str], tree: Trie):
+    """
+    Obtains the largest word formed by `letters`, given the radix tree `tree`.
+    """
+    # convenience wrapper for the real recursive function
     return _resolve(letters, tree, tree.letter, tree.letter)
 
 def _resolve(letters: list[str], tree: Trie, current_prediction: str, best_prediction: str) -> str:
+    """
+    :param letters: list of available letters
+    :param tree: root of the radix tree
+    :param current_prediction: currently predicted word
+    :param best_prediction: longest predicted word
+    """
     if tree.is_end():  # end of word
         return current_prediction
 
@@ -70,18 +84,6 @@ if __name__ == "__main__":
 
         # resolve the tree
         new_prediction = resolve(working_set, tree)
-
-
-        # travel the tree
-        # curr = tree
-        # for letter in working_set:
-        #     if curr.is_leaf():
-        #         break
-
-        #     if letter in curr:
-        #         new_prediction += letter
-        #         working_set.remove(letter)
-        #         curr = curr[letter]
 
         if len(new_prediction) > len(prediction):
             prediction = new_prediction
